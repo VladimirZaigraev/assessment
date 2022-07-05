@@ -1,6 +1,7 @@
 exports = typeof window === 'undefined' ? global : window;
 
 exports.recursionAnswers = {
+  // 1
   listFiles: function (data, dirName) {
     const arr = [];
     function arrFn(objData) {
@@ -25,7 +26,7 @@ exports.recursionAnswers = {
     }
     return arrFn(data);
   },
-
+  // 2
   permute: function (arr) {
     let res = [];
     const helper = (arr2) => {
@@ -41,14 +42,14 @@ exports.recursionAnswers = {
     helper([]);
     return res;
   },
-
+  // 3
   fibonacci: function (n) {
     function fib(n) {
       return n <= 1 ? n : fib(n - 1) + fib(n - 2);
     }
     return fib(n);
   },
-
+  // 4
   validParentheses: function (n) {
     const recurse = (n) => {
       const result = [];

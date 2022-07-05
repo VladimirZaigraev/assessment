@@ -55,19 +55,19 @@ exports.functionsAnswers = {
   },
   //9
   curryIt: function (fn) {
-    function applyArguments(_fn, args) {
+    function applyArg(_fn, args) {
       return _fn.apply(null, args);
     }
-    function getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount) {
-      return function (currentArgument) {
-        accumulatedArguments.push(currentArgument);
-        if (accumulatedArguments.length === expectedArgumentsCount) {
-          return applyArguments(fn, accumulatedArguments);
+    function getArgAccum(accumArg, argCount) {
+      return function (currentArg) {
+        accumArg.push(currentArg);
+        if (accumArg.length === argCount) {
+          return applyArg(fn, accumArg);
         }
 
-        return getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount);
+        return getArgAccum(accumArg, argCount);
       };
     }
-    return getArgumentAccumulator([], fn.length);
+    return getArgAccum([], fn.length);
   },
 };
